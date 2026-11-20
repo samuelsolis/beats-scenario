@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Título de la presentación</title>
+  <link rel="stylesheet" href="tema.css">
+  <link rel="stylesheet" href="base.css">
+</head>
+<body>
+<div id="marco">
+<div id="escenario">
+
+<!-- Escena de ejemplo: enseña cada mecanismo. Se borra al empezar. -->
+<section class="escena" data-id="ejemplo" data-titulo="Ejemplo">
+  <div class="columna" style="height: 100%;">
+    <div class="pila" style="height: auto;">
+      <h2 class="titular" data-out="4">Título</h2>
+      <h2 class="titular" data-in="4">Otro título en el mismo sitio</h2>
+    </div>
+    <div class="dos">
+      <div class="panel">
+<pre class="codigo" data-foco="2:1 3:2-3">
+var total = 0;
+for (var i = 0; i < 10; i++) {
+  total = total + 1;
+}
+</pre>
+      </div>
+      <div class="columna">
+        <p class="frase" data-in="3"><span id="cuenta">0</span> vueltas</p>
+        <p class="ilustrativo" data-in="3">número ilustrativo</p>
+      </div>
+    </div>
+  </div>
+
+  <aside class="nota" data-beat="1">La nota de este beat: lo que se dice.</aside>
+  <aside class="nota" data-beat="2">Se resalta una línea con data-foco.</aside>
+  <aside class="nota" data-beat="3">Animación a medida: gancho Charla.escena en escenas.js.</aside>
+  <aside class="nota" data-beat="4">El título cambia: dos piezas en la misma pila.</aside>
+</section>
+
+  <div id="progreso"></div>
+</div>
+</div>
+
+<div id="general"></div>
+<div id="apagon"></div>
+<div id="ayuda">→ / clic: siguiente · ← : anterior · O: escenas · P: presentador · F: pantalla completa · B: negro</div>
+
+<script src="motor.js"></script>
+<script src="escenas.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "charla-beats",
+  "owner": { "name": "Samuel Solis" },
+  "metadata": {
+    "description": "Presentaciones por beats en HTML, CSS y JS puros, preparadas con Claude."
+  },
+  "plugins": [
+    {
+      "name": "charla-beats",
+      "source": "./plugins/charla-beats",
+      "description": "Skill para crear presentaciones por beats: un clic = un beat, escenario fijo de 1920×1080, notas y ventana del presentador, sin dependencias."
+    }
+  ]
+}

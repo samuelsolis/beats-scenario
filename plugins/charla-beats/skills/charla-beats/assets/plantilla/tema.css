@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Tema PROVISIONAL: solo para que la plantilla se vea. Sustitúyelo por la
+   estética que se decida para esta presentación.
+   base.css necesita estas variables; el resto de este fichero es libre.
+   ========================================================================== */
+
+:root {
+  --fondo: #ffffff;
+  --texto: #1a1a1a;
+  --acento: #555555;
+  --letra: system-ui, "DejaVu Sans", sans-serif;
+  --mono: ui-monospace, "DejaVu Sans Mono", monospace;
+  --margen: 70px 110px 60px;
+  --t: .45s;
+  --curva: cubic-bezier(.2, .7, .2, 1);
+}
+
+.titular { font-size: 80px; line-height: 1.1; font-weight: 700; }
+.frase { font-size: 60px; line-height: 1.2; font-weight: 700; }
+.texto { font-size: 38px; line-height: 1.35; }
+.pequeno { font-size: 30px; line-height: 1.4; }
+.ilustrativo { font-size: 20px; font-style: italic; opacity: .6; }
+
+/* .panel es la caja de contenido; recorrer.mjs avisa si algo se sale de ella */
+.panel { border: 2px solid var(--acento); padding: 30px 36px; }
+pre.codigo { font-family: var(--mono); font-size: 29px; line-height: 1.5; }
+pre.codigo.con-foco .linea.foco { background: #eee; }
+.c-com { opacity: .6; } .c-pal { font-weight: 700; } .c-cad, .c-num, .c-var { opacity: .85; }
