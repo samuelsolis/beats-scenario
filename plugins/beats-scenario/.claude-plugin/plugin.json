@@ -1,10 +1,20 @@
 {
   "name": "beats-scenario",
   "version": "1.0.0",
-  "description": "Skill para crear presentaciones por beats en HTML, CSS y JS puros: un clic = un beat, escenario fijo de 1920×1080, notas y ventana del presentador, sin dependencias.",
-  "author": { "name": "Samuel Solis" },
+  "description": "Skill to build beat-based presentations in plain HTML, CSS and JS: one click = one beat, fixed 1920×1080 stage, speaker notes and presenter window, no dependencies.",
+  "author": {
+    "name": "Samuel Solis"
+  },
   "homepage": "https://github.com/samuelsolis/beats-scenario",
   "repository": "https://github.com/samuelsolis/beats-scenario",
   "license": "MIT",
-  "keywords": ["presentaciones", "slides", "charlas", "clases", "html"]
+  "keywords": [
+    "presentations",
+    "slides",
+    "talks",
+    "lectures",
+    "html",
+    "presentaciones",
+    "diapositivas"
+  ]
 }

@@ -1,84 +1,97 @@
 # beats-scenario
 
-Una skill para [Claude](https://claude.com) que prepara presentaciones **por beats** en HTML, CSS y JavaScript puros, sin dependencias ni compilación.
+**English** · [Español](README.es.md)
 
-Una presentación por beats no es una lista de diapositivas. Es un escenario fijo en el que **cada clic cambia algo**: una pieza aparece, otra se va, un dibujo se transforma en el siguiente. Pensada para clases, charlas y formaciones en las que el dibujo y el código importan más que las viñetas.
+A skill for [Claude](https://claude.com) that builds **beat-based** presentations in plain HTML, CSS and JavaScript, with no dependencies and no build step.
+
+A beat-based presentation is not a list of slides. It is a fixed stage where **every click changes something**: a piece appears, another one leaves, a drawing turns into the next one. It is meant for lectures, talks and training sessions where drawings and code matter more than bullet points.
 
 | | |
 |---|---|
-| ![Tres vectores metidos en otro vector](docs/img/vector-de-vectores.png) | ![Los vectores se convierten en una matriz](docs/img/matriz.png) |
-| ![Tres matrices apiladas forman un cubo](docs/img/cubo.png) | ![Código con líneas resaltadas junto a un dibujo](docs/img/codigo-y-dibujo.png) |
+| ![Three vectors placed inside another vector](docs/img/vector-de-vectores.png) | ![The vectors become a matrix](docs/img/matriz.png) |
+| ![Three stacked matrices form a cube](docs/img/cubo.png) | ![Code with highlighted lines next to a drawing](docs/img/codigo-y-dibujo.png) |
 
-*Capturas de una clase de Programación hecha con la skill: un vector se convierte en una matriz y la matriz en un cubo, beat a beat.*
+*Screenshots from a Programming lecture made with the skill (in Spanish): a vector becomes a matrix and the matrix becomes a cube, beat by beat.*
 
-## Qué hace
+## What it does
 
-- **Un clic = un beat.** La posición va en la URL (`#3.4` = escena 3, beat 4), así que cualquier beat se reconstruye igual al avanzar, retroceder o recargar.
-- **Escenario fijo de 1920×1080** que se escala a cualquier pantalla.
-- **Notas y ventana del presentador** (tecla P): nota actual, siguiente, cronómetro y miniatura del próximo beat, sincronizadas con la pantalla principal.
-- **Código con líneas resaltadas por beat** y coloreado básico de JavaScript, Python, C/C++ y PHP.
-- **Animaciones a medida** con un gancho por escena, para las transformaciones que no salen solo con CSS.
-- **Herramientas de comprobación:** capturas de cualquier beat, hoja de contactos y un recorrido completo que avisa de errores, beats sin nota y piezas que se salen del escenario.
-- **Sin dependencias.** Un `index.html` que se abre con doble clic, sin servidor y sin conexión.
+- **One click = one beat.** The position lives in the URL (`#3.4` = scene 3, beat 4), so any beat is rebuilt the same way whether you move forward, go back or reload.
+- **Fixed 1920×1080 stage** that scales to any screen.
+- **Speaker notes and presenter window** (P key): current note, next note, timer and a thumbnail of the next beat, kept in sync with the main screen.
+- **Code with lines highlighted per beat** and basic syntax colouring for JavaScript, Python, C/C++ and PHP.
+- **Custom animations** through one hook per scene, for transformations that CSS alone can't do.
+- **Checking tools:** screenshots of any beat, a contact sheet, and a full walkthrough that reports errors, beats without notes and pieces that overflow the stage.
+- **No dependencies.** An `index.html` you open with a double click, with no server and no internet connection.
 
-Teclas: → / clic siguiente · ← anterior · 1–9 escena · O vista general · P presentador · F pantalla completa · B negro.
+Keys: → / click next · ← previous · 1–9 scene · O overview · P presenter · F fullscreen · B black screen.
 
-## Instalación
+## Installation
 
-### Claude Code, como plugin (recomendado)
+### Claude Code, as a plugin (recommended)
 
 ```
 /plugin marketplace add samuelsolis/beats-scenario
 /plugin install beats-scenario@beats-scenario
 ```
 
-### Claude Code, a mano
+### Claude Code, by hand
 
 ```bash
 git clone https://github.com/samuelsolis/beats-scenario.git
 cp -r beats-scenario/plugins/beats-scenario/skills/beats-scenario ~/.claude/skills/
 ```
 
-### claude.ai (web y escritorio)
+### claude.ai (web and desktop)
 
-Descarga `beats-scenario.zip` de la [última versión](https://github.com/samuelsolis/beats-scenario/releases/latest) y súbelo como skill en los ajustes de capacidades (*Settings → Capabilities → Skills*).
+Download `beats-scenario.zip` from the [latest release](https://github.com/samuelsolis/beats-scenario/releases/latest) and upload it as a skill in *Settings → Capabilities → Skills*.
 
-## Uso
+## Usage
 
-Pídele a Claude una presentación como se la pedirías a una persona:
+Ask Claude for a presentation the way you would ask a person:
 
-> Prepárame una clase de 15 minutos sobre recursividad para primero de carrera. Estilo sobrio, fondo blanco. El material está en `apuntes.pdf`.
+> Prepare a 15-minute lecture on recursion for first-year students. Plain style, white background. The material is in `notes.pdf`.
 
-Claude aclara primero qué se quiere contar, a quién y con qué estética; propone el hilo escena a escena y espera tu visto bueno; y luego construye escena a escena, comprobando cada una con capturas. El resultado es una carpeta con:
+Claude first clarifies what you want to tell, to whom and with what look. Then it proposes the storyline scene by scene and waits for your go-ahead. Finally it builds the presentation scene by scene, checking each one with screenshots. Claude writes the presentation in your language. The result is a folder with:
 
 ```
-index.html        escenas y notas
-tema.css          la estética de esta presentación
-base.css          mecánica del escenario (no se toca)
-motor.js          beats, URL, teclado, presentador
-escenas.js        animaciones a medida
-presentador.html  ventana del presentador
-herramientas/     capturas y recorrido de comprobación
+index.html        scenes and notes
+tema.css          the look of this presentation
+base.css          stage mechanics (not to be edited)
+motor.js          beats, URL, keyboard, presenter
+escenas.js        custom animations
+presentador.html  presenter window
+herramientas/     screenshots and walkthrough checks
 ```
 
-### Lo esencial del formato
+The file names and the attributes of the format are in Spanish, the language the skill was born in.
+
+### The essentials of the format
 
 ```html
-<section class="escena" data-id="ejemplo" data-titulo="Ejemplo">
-  <p data-in="2">aparece en el beat 2</p>
-  <p data-in="2" data-out="4">visible en los beats 2 y 3</p>
-  <div data-on="3:resaltado">tiene la clase desde el beat 3</div>
+<section class="escena" data-id="example" data-titulo="Example">
+  <p data-in="2">appears at beat 2</p>
+  <p data-in="2" data-out="4">visible at beats 2 and 3</p>
+  <div data-on="3:highlighted">has the class from beat 3 on</div>
   <pre class="codigo" data-foco="2:1-3 4:5">…</pre>
-  <aside class="nota" data-beat="2">qué decir en el beat 2</aside>
+  <aside class="nota" data-beat="2">what to say at beat 2</aside>
 </section>
 ```
 
-El detalle completo, los criterios de diseño y las trampas conocidas están en [`SKILL.md`](plugins/beats-scenario/skills/beats-scenario/SKILL.md).
+| Attribute | Meaning |
+|---|---|
+| `data-in="n"` | visible from beat *n* |
+| `data-out="n"` | hidden from beat *n* |
+| `data-on="n:class"` / `"n-m:class"` | adds the class from beat *n* (or only from *n* to *m*) |
+| `data-foco="beat:lines"` | highlights code lines at that beat |
+| `data-fuera` | on a scene: parks it (stays in the HTML, not shown) |
+| `<aside class="nota" data-beat="n">` | speaker note for beat *n* |
 
-### Requisitos de las herramientas de comprobación
+The full details, design criteria and known pitfalls are in [`SKILL.md`](plugins/beats-scenario/skills/beats-scenario/SKILL.md) (in Spanish; Claude reads it in any language).
 
-Solo para las comprobaciones, no para ver la presentación: `google-chrome`, Node ≥ 21 y, para la hoja de contactos, Python con Pillow.
+### Requirements for the checking tools
 
-## Licencia
+Only for the checks, not for viewing the presentation: `google-chrome`, Node ≥ 21 and, for the contact sheet, Python with Pillow.
+
+## License
 
 [MIT](LICENSE)
