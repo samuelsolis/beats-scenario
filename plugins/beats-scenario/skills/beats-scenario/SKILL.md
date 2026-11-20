@@ -1,5 +1,5 @@
 ---
-name: charla-beats
+name: beats-scenario
 description: Crea presentaciones por beats en HTML, CSS y JS puros, sin dependencias: un clic = un beat, escenario fijo de 1920×1080, notas y ventana del presentador, y piezas que se transforman de un beat al siguiente en lugar de diapositivas. Úsala siempre que el usuario quiera preparar una charla, una clase, una ponencia, una formación o una presentación, o seguir una ya hecha con este formato (carpeta con motor.js y escenas.js), aunque diga «diapositivas» o «slides» y no nombre los beats. No la uses si pide expresamente un .pptx o un PDF.
 ---
 

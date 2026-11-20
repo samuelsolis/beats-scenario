@@ -1,4 +1,4 @@
-# charla-beats
+# beats-scenario
 
 Una skill para [Claude](https://claude.com) que prepara presentaciones **por beats** en HTML, CSS y JavaScript puros, sin dependencias ni compilación.
 
@@ -28,20 +28,20 @@ Teclas: → / clic siguiente · ← anterior · 1–9 escena · O vista general 
 ### Claude Code, como plugin (recomendado)
 
 ```
-/plugin marketplace add samuelsolis/charla-beats
-/plugin install charla-beats@charla-beats
+/plugin marketplace add samuelsolis/beats-scenario
+/plugin install beats-scenario@beats-scenario
 ```
 
 ### Claude Code, a mano
 
 ```bash
-git clone https://github.com/samuelsolis/charla-beats.git
-cp -r charla-beats/plugins/charla-beats/skills/charla-beats ~/.claude/skills/
+git clone https://github.com/samuelsolis/beats-scenario.git
+cp -r beats-scenario/plugins/beats-scenario/skills/beats-scenario ~/.claude/skills/
 ```
 
 ### claude.ai (web y escritorio)
 
-Descarga `charla-beats.zip` de la [última versión](https://github.com/samuelsolis/charla-beats/releases/latest) y súbelo como skill en los ajustes de capacidades (*Settings → Capabilities → Skills*).
+Descarga `beats-scenario.zip` de la [última versión](https://github.com/samuelsolis/beats-scenario/releases/latest) y súbelo como skill en los ajustes de capacidades (*Settings → Capabilities → Skills*).
 
 ## Uso
 
@@ -73,7 +73,7 @@ herramientas/     capturas y recorrido de comprobación
 </section>
 ```
 
-El detalle completo, los criterios de diseño y las trampas conocidas están en [`SKILL.md`](plugins/charla-beats/skills/charla-beats/SKILL.md).
+El detalle completo, los criterios de diseño y las trampas conocidas están en [`SKILL.md`](plugins/beats-scenario/skills/beats-scenario/SKILL.md).
 
 ### Requisitos de las herramientas de comprobación
 
